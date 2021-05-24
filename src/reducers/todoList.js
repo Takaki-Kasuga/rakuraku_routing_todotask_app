@@ -1,4 +1,4 @@
-import { CREATETODO, DELETETODO, COMPLETETODO } from '../actions/index'
+import { CREATETODO, DELETETODO, COMPLETETODO, BACKTODO } from '../actions/index'
 
 const initialState = []
 
@@ -20,9 +20,19 @@ export default (state = initialState, action) => {
       return newToDoDelete
 
     case COMPLETETODO:
+      console.log('COMPLETETODO')
+      const newToDoComplete = [...state];
+      newToDoComplete[action.indexNum].flag = false
+      return newToDoComplete
 
+    case BACKTODO:
+      console.log('COMPLETETODO')
+      const newToDoBack = [...state];
+      newToDoBack[action.indexNum].flag = true
+      return newToDoBack
 
     default:
+      console.log('default')
       return state
   }
 }
