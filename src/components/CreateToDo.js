@@ -11,13 +11,17 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import { useState, useEffect } from 'react'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { createToDo } from '../actions/index'
 
 
 
 export const CreateToDo = (props) => {
   const history = useHistory()
   console.log(props)
-  const { createToDo } = props
+  // const { createToDo } = props
+  const dispatch = useDispatch()
+
 
   const [newName, setNewName] = useState('')
   const [newTitle, setNewTitle] = useState('')
@@ -103,7 +107,7 @@ export const CreateToDo = (props) => {
       <div>
         <Button onClick={() => {
           history.push('/')
-          createToDo({ title: newTitle, name: newName, detail: newToDoDetail, deadline: newDeadline, startDate: newStartDate })
+          dispatch(createToDo({ title: newTitle, name: newName, detail: newToDoDetail, deadline: newDeadline, startDate: newStartDate }))
         }} variant="contained" color="primary">
           <Link>送信する</Link>
         </Button>

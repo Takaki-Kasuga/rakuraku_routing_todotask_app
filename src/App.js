@@ -6,14 +6,16 @@ import { BrowserRouter, Switch, Route, Link, useParams, useLocation } from 'reac
 import { CreateToDo } from './components/CreateToDo'
 import { TodoDetails } from './components/TodoDetails'
 import * as React from 'react';
-import { connect } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { createToDo, deleteToDo, completeToDo, backToDo } from './actions/index'
 import { useState } from 'react'
 import { Home } from './components/Home'
 
 
 const App = (props) => {
-  console.log(props)
+  const dispatch = useDispatch()
+  const state = useSelector((state) => state.todoList)
+  console.log(state)
 
   return (
     <React.Fragment>
@@ -44,9 +46,9 @@ const App = (props) => {
   );
 }
 
-const mapStateToProps = (state) => ({
-  todos: state.todoList
-})
+// const mapStateToProps = (state) => ({
+//   todos: state.todoList
+// })
 
 const mapDispatchToProps = (dispatch) => ({
   deleteToDo: (indexNum) => dispatch(deleteToDo(indexNum)),
@@ -55,4 +57,5 @@ const mapDispatchToProps = (dispatch) => ({
   backToDo: (indexNum) => dispatch(backToDo(indexNum)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App
+// export default connect(mapStateToProps, mapDispatchToProps)(App);
