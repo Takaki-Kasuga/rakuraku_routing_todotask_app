@@ -30,14 +30,14 @@ const App = (props) => {
           </Button>
           <Switch>
             <Route path="/create-todo">
-              <CreateToDo createToDo={props.createToDo}></CreateToDo>
+              <CreateToDo></CreateToDo>
             </Route>
             <Route path="/todo-details/:id">
-              <TodoDetails todos={props.todos}>
+              <TodoDetails>
               </TodoDetails>
             </Route>
             <Route exact path="/">
-              <Home props={props}></Home>
+              <Home></Home>
             </Route>
           </Switch>
         </BrowserRouter>
@@ -46,16 +46,4 @@ const App = (props) => {
   );
 }
 
-// const mapStateToProps = (state) => ({
-//   todos: state.todoList
-// })
-
-const mapDispatchToProps = (dispatch) => ({
-  deleteToDo: (indexNum) => dispatch(deleteToDo(indexNum)),
-  createToDo: (newToDo) => dispatch(createToDo(newToDo)),
-  completeToDo: (indexNum) => dispatch(completeToDo(indexNum)),
-  backToDo: (indexNum) => dispatch(backToDo(indexNum)),
-})
-
 export default App
-// export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -16,10 +16,8 @@ import { createToDo } from '../actions/index'
 
 
 
-export const CreateToDo = (props) => {
+export const CreateToDo = () => {
   const history = useHistory()
-  console.log(props)
-  // const { createToDo } = props
   const dispatch = useDispatch()
 
 

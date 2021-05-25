@@ -6,13 +6,9 @@ import { useDispatch, useSelector } from 'react-redux'
 
 
 
-export const TodoDetails = (props) => {
+export const TodoDetails = () => {
   const state = useSelector((state) => state.todoList)
   const { id } = useParams()
-  console.log(id)
-  console.log('TodoDetailsが発火')
-  // const { todos } = props
-  // console.log(todos)
   return (
     <React.Fragment>
       <h1>チケット詳細表示（Todo表示）</h1>

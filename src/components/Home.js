@@ -6,11 +6,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { deleteToDo, completeToDo, backToDo } from '../actions/index'
 
 
-export const Home = (childProps) => {
+export const Home = () => {
   const dispatch = useDispatch()
   const state = useSelector((state) => state.todoList)
-  // const { props } = childProps
-  console.log(childProps)
   return (
     <>
       <h1>一覧画面</h1>
